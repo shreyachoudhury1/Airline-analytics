@@ -108,11 +108,12 @@ else:
         - Reduce operational delays and improve on-time performance.  
         - Utilize data-driven insights for strategic decision-making and resource allocation.  
         """)
-
-        st.title("📂 Sections Covered")
-        st.markdown("""
-        - Passenger Satisfaction Prediction    
-        """)
+    # Logout button at bottom
+        st.markdown("---")
+        if st.button("🚪 Logout"):
+            st.session_state.authenticated = False
+            st.session_state.username = ""
+            st.rerun()
 
     # -----------------------------
     # PREDICTION PAGE
@@ -191,14 +192,13 @@ else:
         st.write(f"Satisfied: **{proba[1]*100:.2f}%**")
         st.progress(int(proba[1]*100))
         st.write(f"Dissatisfied: **{proba[0]*100:.2f}%**")
-        st.progress(int(proba[0]*100))
-# -----------------------------
-    # LOGOUT BUTTON AT BOTTOM
-    # -----------------------------
-st.markdown("---")
-if st.button("🚪 Logout"):
-    st.session_state.authenticated = False
-    st.session_state.username = ""
-    st.rerun()
+        st.progress(int(proba[0]*100))  
     
+    # Logout button at bottom
+        st.markdown("---")
+        if st.button("🚪 Logout"):
+            st.session_state.authenticated = False
+            st.session_state.username = ""
+            st.rerun()
+
  
